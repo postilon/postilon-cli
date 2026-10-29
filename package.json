@@ -1,0 +1,46 @@
+{
+  "name": "@postilon/cli",
+  "version": "1.0.0",
+  "description": "Command-line tool for the Postilon transactional email API",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "postilon": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18.3"
+  },
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "test": "node --test",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/postilon/postilon-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/postilon/postilon-cli/issues"
+  },
+  "homepage": "https://postilon.com/docs/cli",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "postilon",
+    "email",
+    "transactional-email",
+    "cli"
+  ],
+  "dependencies": {
+    "@postilon/node": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.130",
+    "typescript": "~5.9.3"
+  }
+}
